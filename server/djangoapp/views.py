@@ -64,10 +64,10 @@ def registration(request):
     if not username_exist:
         # Create user in auth_user table
         user = User.objects.create_user(
-            username=username, 
-            first_name=first_name, 
-            last_name=last_name, 
-            password=password, 
+            username=username,
+            first_name=first_name,
+            last_name=last_name,
+            password=password,
             email=email
         )
         # Login the user and redirect to list page
@@ -128,8 +128,8 @@ def get_dealer_details(request, dealer_id):
         return JsonResponse({"status": 400, "message": "Bad Request"})
 
 
-def add_review(request): 
-    if (request.user.is_anonymous is False): 
+def add_review(request):
+    if (request.user.is_anonymous is False):
         data = json.loads(request.body)
         try:
             post_review(data)
